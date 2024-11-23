@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Cálculo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Formulario de Cálculo</h2>
+        <form id="calcForm">
+            <div class="form-group">
+                <input type="number" id="num1" class="form-control" placeholder="Número 1" required>
+            </div>
+            <div class="form-group">
+                <input type="number" id="num2" class="form-control" placeholder="Número 2" required>
+            </div>
+            <div class="form-group">
+                <select id="operation" class="form-control">
+                    <option value="sum">Suma</option>
+                    <option value="subtract">Resta</option>
+                    <option value="multiply">Multiplicación</option>
+                    <option value="divide">División</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="calculate()">Calcular</button>
+        </form>
+    </div>
+
+    <script>
+        function calculate() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let operation = document.getElementById('operation').value;
+            let result;
+
+            if (operation === "sum") result = num1 + num2;
+            if (operation === "subtract") result = num1 - num2;
+            if (operation === "multiply") result = num1 * num2;
+            if (operation === "divide") result = num1 / num2;
+
+            alert("Resultado: " + result);
+        }
+    </script>
+</body>
+</html>

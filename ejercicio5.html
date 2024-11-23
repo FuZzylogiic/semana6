@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de un Triángulo Rectángulo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Cálculo del Área de un Triángulo Rectángulo</h2>
+        <div class="form-group">
+            <input type="number" id="base" class="form-control" placeholder="Base" required>
+        </div>
+        <div class="form-group">
+            <input type="number" id="height" class="form-control" placeholder="Altura" required>
+        </div>
+        <button class="btn btn-primary" onclick="calculatarTrianguloArea()">Calcular Área</button>
+        <p id="triangleAreaResult" class="mt-3"></p>
+    </div>
+
+    <script>
+        function calculatarTrianguloArea() {
+            let base = parseFloat(document.getElementById('base').value);
+            let height = parseFloat(document.getElementById('height').value);
+            let area = (base * height) / 2;
+            document.getElementById('trianguloAreaResultado').textContent = "Área: " + area.toFixed(2);
+        }
+    </script>
+</body>
+</html>

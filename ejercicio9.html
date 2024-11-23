@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descuento o Recargo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Descuento o Recargo Según Cliente y Forma de Pago</h2>
+        <div class="form-group">
+            <label for="customerType">Tipo de Cliente (G/A)</label>
+            <input type="text" id="customerType" class="form-control" placeholder="Ingresa G para general o A para afiliado" required>
+        </div>
+        <div class="form-group">
+            <label for="paymentType">Forma de Pago (C/P)</label>
+            <input type="text" id="paymentType" class="form-control" placeholder="Ingresa C para contado o P para plazos" required>
+        </div>
+        <div class="form-group">
+            <label for="purchaseAmount">Monto de la Compra (S/.)</label>
+            <input type="number" id="purchaseAmount" class="form-control" placeholder="Ingresa el monto de la compra" required>
+        </div>
+        <button class="btn btn-primary" onclick="calculateDiscountOrCharge()">Calcular Total</button>
+        <p id="result" class="mt-3"></p>
+    </div>
+
+    <script>
+        function calculateDiscountOrCharge() {
+            let customerType = document.getElementById('customerType').value.toUpperCase();
+            let paymentType = document.getElementById('paymentType').value.toUpperCase();
+            let purchaseAmount = parseFloat(document.getElementById('purchaseAmount').value);
+            let discountOrCharge = 0;
+
+            if (customerType === "G" && paymentType === "C") {
+                discountOrCharge = 0.15;  
+            } else if (customerType === "G" && paymentType === "P") {
+                discountOrCharge = 0.10;  
+            } else if (customerType === "A" && paymentType === "C") {
+                discountOrCharge = 0.20;  
+            } else if (customerType === "A" && paymentType === "P") {
+                discountOrCharge = 0.05;  
+            } else {
+                alert("Tipo de cliente o forma de pago no válidos.");
+                return;
+            }
+
+            let adjustmentAmount = purchaseAmount * discountOrCharge;  
+            let totalAmount = (discountOrCharge > 0) ? purchaseAmount - adjustmentAmount : purchaseAmount + adjustmentAmount;
+
+            document.getElementById('result').textContent = `
+                Monto Ajustado: S/. ${adjustmentAmount.toFixed(2)}\n
+                Total a Pagar: S/. ${totalAmount.toFixed(2)}
+            `;
+        }
+    </script>
+</body>
+</html>

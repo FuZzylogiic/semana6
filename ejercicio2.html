@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Edad</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Evaluación de Edad</h2>
+        <div class="form-group">
+            <input type="number" id="age" class="form-control" placeholder="Ingresa tu edad" required>
+        </div>
+        <button class="btn btn-primary" onclick="checkAge()">Verificar Edad</button>
+    </div>
+
+    <script>
+        function checkAge() {
+            let age = parseInt(document.getElementById('age').value);
+            if (age >= 18) {
+                alert("Eres mayor de edad.");
+            } else {
+                alert("Eres menor de edad.");
+            }
+        }
+    </script>
+</body>
+</html>
